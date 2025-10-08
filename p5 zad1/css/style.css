@@ -1,0 +1,11 @@
+.obiekt{
+    background-color: rgb(208, 255, 208);
+    border:4px solid white;
+    border-radius: 10px;
+}
+.nazwaowoca{
+    background-color: green;
+}
+main{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}

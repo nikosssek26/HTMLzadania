@@ -1,0 +1,26 @@
+body
+{
+background-color:aqua;
+color:black;
+font-family: 'Courier New';
+}
+.obr{
+    display:block;
+    margin-left: auto;
+    margin-right:auto;
+}
+.tytul
+{
+    margin-top:5px;
+    text-align:center;
+    font-weight: bold;
+    font-size: 100%;
+}
+.autor
+{
+    text-align:center;
+}
+header{
+    text-align:center;
+    color:pink;
+}

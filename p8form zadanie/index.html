@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formularz</title>
+    <link href="css/bootstrap.css" rel="stylesheet" >
+  </head>
+<body>
+      <h1>Formularz</h1>
+      
+      <p>
+            <label for="imie">Imię:</label><br>
+            <input type="text" id="imie">
+      </p>
+      <fieldset>
+            <legend>Płęć</legend>
+            <input type="radio" name="plec" checked> Mężczyzna &nbsp;
+            <input type="radio" name="plec"> Kobieta &nbsp;
+            <input type="radio" name="plec"> Inne &nbsp;
+      </fieldset><br>
+      <fieldset>
+            <legend>Ulubiony typ muzyki</legend>
+            <input type="checkbox" name="muzyczka" checked> Rap &nbsp;
+            <input type="checkbox" name="muzyczka"> Hip Hop &nbsp;
+            <input type="checkbox" name="muzyczka"> Trap &nbsp;
+      </fieldset>
+      <button class="btn btn-success" type="submit">Wyślij</button>
+</body>
+</html>
