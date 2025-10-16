@@ -6,7 +6,12 @@ footer{
   font-family: "Audiowide", sans-serif;
 }
 #top-page{
-  background-image: url(img/SS1.png);
+  background-image: url("img/SS2.png");
+  background-repeat: no-repeat;
+  background-size: cover;          
+  background-position: center;     
+  background-attachment: fixed;    
+  background-color: rgb(80, 80, 80);
 }
 .container{
   font-family: "Audiowide", sans-serif;
@@ -27,7 +32,6 @@ to {left: -100%;}
 #mainNav{
   background-color: rgba(0, 0, 0, 0);
 }
-
 
 .masthead {
   padding-top: calc(6rem + 74px);
@@ -72,4 +76,19 @@ to {left: -100%;}
   background-color: #FFFFFF;
   border-radius: 1rem;
   border-color: #FFFFFF;
+}
+
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 50px 400px rgba(0,0,0,0.9) inset;
+}
+
+#font1{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: larger;
+  color: black;
 }
