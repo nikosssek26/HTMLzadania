@@ -1,28 +1,15 @@
-.content h1 {
-  font-family: 'Audiowide', sans-serif;
-  font-size: 50px;
-  color: white;
-  text-shadow: 2px 0px 6px #FFFFFF;
-}
-.contentgithub h1 {
-  font-family: 'Audiowide', sans-serif;
-  font-size: 50px;
-  color: white;
-  text-shadow: 2px 0px 6px #FFFFFF;
-}
-.contentgithub img {
-  animation: myAnimation3 1s infinite linear;
-}
-footer>p {
-  font-family: 'Audiowide', sans-serif;
-  color: white;
-  text-shadow: 2px 0px 6px #FFFFFF;
-}
 footer{
   position: fixed;
   bottom: 0;
   width: 100%;
   animation: myAnimation2 20s infinite linear;
+  font-family: "Audiowide", sans-serif;
+}
+#top-page{
+  background-image: url(img/SS1.png);
+}
+.container{
+  font-family: "Audiowide", sans-serif;
 }
 @keyframes myAnimation2 {
 from {left: 100%;}
@@ -31,4 +18,58 @@ to {left: -100%;}
 @keyframes myAnimation3 {
 from {left: 100%;}
 to {left: -100%;}
+}
+
+#top-page{
+  background-color: rgb(80, 80, 80);
+}
+
+#mainNav{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+
+.masthead {
+  padding-top: calc(6rem + 74px);
+  padding-bottom: 6rem;
+}
+.masthead .masthead-heading {
+  font-size: 2.75rem;
+  line-height: 2.75rem;
+}
+.masthead .masthead-subheading {
+  font-size: 1.25rem;
+}
+.masthead .masthead-avatar {
+  width: 15rem;
+}
+
+@media (min-width: 992px) {
+  .masthead {
+    padding-top: calc(6rem + 104px);
+    padding-bottom: 6rem;
+  }
+  .masthead .masthead-heading {
+    font-size: 4rem;
+    line-height: 3.5rem;
+  }
+  .masthead .masthead-subheading {
+    font-size: 1.5rem;
+  }
+}
+
+.divider-custom {
+  margin: 1.25rem 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divider-custom .divider-custom-line {
+  width: 100%;
+  max-width: 25rem;
+  height: 0.25rem;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  border-color: #FFFFFF;
 }
