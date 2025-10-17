@@ -13,7 +13,7 @@ footer{
   background-attachment: fixed;    
   background-color: rgb(80, 80, 80);
 }
-.container{
+body{
   font-family: "Audiowide", sans-serif;
 }
 @keyframes myAnimation2 {
@@ -81,6 +81,14 @@ to {left: -100%;}
   border-radius: 1rem;
   border-color: #FFFFFF;
 }
+.divider-custom .divider-custom-line2 {
+  width: 100%;
+  max-width: 50rem;
+  height: 0.25rem;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  border-color: #FFFFFF;
+}
 
 .vignette {
   position: fixed;
@@ -92,7 +100,7 @@ to {left: -100%;}
 }
 
 #font1{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: larger;
   color: black;
 }
