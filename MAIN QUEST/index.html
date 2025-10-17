@@ -8,6 +8,7 @@
     <link href="style.css" rel="stylesheet" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Metal+Mania">
   </head>
   <script src="js/scripts.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -18,7 +19,7 @@
         <a class="navbar-brand text-left fs-3" href="#page-top">
           <img src="./img/techlandlogo.png" alt="logo" width="75px">
           Techland</a>
-          <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler text-uppercase font-weight-bold bg-danger text-black rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               Menu Główne
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -60,9 +61,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <a href="https://en.wikipedia.org/wiki/Dying_Light_2">
                           <img class="img-fluid" src="img/DL2.png" alt="..." />
-                        </a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-5">
@@ -70,9 +69,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <a href="https://en.wikipedia.org/wiki/Dying_Light:_The_Beast">
                           <img class="img-fluid" src="img/DL3.png" alt="..." />
-                        </a>
                     </div>
                 </div>
                 </div>
@@ -87,7 +84,7 @@
                       <div class="container">
                           <div class="row justify-content-center">
                               <div class="col-lg-8">
-                                  <h2 class="portfolio-modal-title text-black text-uppercase mb-0">DYING LIGHT</h2>
+                                  <h2 class="portfolio-modal-title text-black text-uppercase mb-0" id="font2">DYING LIGHT</h2>
                                   <div class="divider-custom">
                                       <div class="divider-custom-line"></div>
                                       <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
@@ -106,7 +103,64 @@
               </div>
           </div>
       </div>
-      <footer class="text-center">
+      <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                  <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                  <div class="modal-body text-center pb-5">
+                      <div class="container">
+                          <div class="row justify-content-center">
+                              <div class="col-lg-8">
+                                  <h2 class="portfolio-modal-title text-black text-uppercase mb-0" id="font2">DYING LIGHT 2</h2>
+                                  <div class="divider-custom">
+                                      <div class="divider-custom-line"></div>
+                                      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                      <div class="divider-custom-line"></div>
+                                  </div>
+                                  <img class="img-fluid rounded mb-5" src="img/DL2.png" alt="..." />
+                                  <p class="mb-4" id="font1">Dying Light 2 Stay Human is a 2022 action role-playing survival horror game developed and published by Techland. The game is a sequel to Dying Light, and was released for PlayStation 4, PlayStation 5, Windows, Xbox One, and Xbox Series X/S on February 4th 2022. A cloud version for the Nintendo Switch is in development. It received generally favorable reviews, with praise directed at the combat, parkour system, and open world, but criticism for the story. It sold 5 million units in its first month of release.</p>
+                                  <button class="btn btn-danger" data-bs-dismiss="modal">
+                                      <i class="fas fa-xmark fa-fw"></i>
+                                      Zamknij Okno
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                  <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                  <div class="modal-body text-center pb-5">
+                      <div class="container">
+                          <div class="row justify-content-center">
+                              <div class="col-lg-8">
+                                  <h2 class="portfolio-modal-title text-black text-uppercase mb-0" id="font2">DYING LIGHT : THE BEAST</h2>
+                                  <div class="divider-custom">
+                                      <div class="divider-custom-line"></div>
+                                      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                      <div class="divider-custom-line"></div>
+                                  </div>
+                                  <img class="img-fluid rounded mb-5" style="filter: invert(1);" src="img/DL3.png" alt="..." />
+                                  <p class="mb-4" id="font1">Dying Light: The Beast is an action-adventure video game played from a first-person perspective. The game is set in <b>Castor Woods</b>, a popular rural tourist destination located in the Western Alps and is now overrun by zombies. Players can explore this open world using <b>Crane's</b> parkour skills, or driving a 4x4 vehicle. Like the first game, the zombies are slow when exposed to sunlight, but they become more aggressive and hostile at night. Crane can utilize a variety of melee weapons and firearms to defeat enemies, as well as superhuman abilities, allowing him to run and sprint faster than typical human beings. He can also enter "Beast Mode", which allows him to launch powerful bare-handed attacks and hurl environment objects at enemies to greatly damage them. As players progress, they will be able to unlock more skills for Crane to further boost his combat prowess. As with its predecessors, the game supports 4-player cooperative multiplayer.</p>
+                                  <button class="btn btn-danger" data-bs-dismiss="modal">
+                                      <i class="fas fa-xmark fa-fw"></i>
+                                      Zamknij Okno
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="footer2" class="fixed-bottom">
+        &nbsp;
+      </div>
+      <footer class="text-center fixed-bottom">
         <p class="text-white">© 2025 Strona NI. Wszelkie prawa zastrzeżone.</p>
       </footer>
   </body>
