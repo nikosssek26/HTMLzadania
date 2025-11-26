@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="pl">
   <head>
@@ -21,6 +25,14 @@
     				<br><br><button class="rounded" type="submit">Login</button>
   				</div>
 			</form>
+			<?php
+			if(isset($_SESSION['komunikat']))
+			{
+				echo("<h1>BŁĄD<h1>");
+				echo("<h2>$_SESSION[komunikat]</h2>");
+				unset($_SESSION['komunikat']);
+			}
+			?>
 		</div>
 
 	</main>

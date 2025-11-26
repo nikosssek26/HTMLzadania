@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(!isset($_SESSION['czyZalogowany']))
+{
+	header("location:index.php");
+	$_SESSION['komunikat'] = "zabezpiecznie przed bruteforce";
+	exit();
+}
+?>
+
 <!doctype html>
 <html lang="pl">
   <head>

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once('config.php');
 
 if(!isset($_POST['login']	))
@@ -17,19 +19,18 @@ $wynik = mysqli_query($conn, $e);
 	if(mysqli_num_rows($wynik) == 0)
 	{
 	    header('Location: index.php');
-	    //echo("brak loginu");
+	    $_SESSION['komunikat'] = "błędny login lub hasło";
 	    exit();	
 	}
 	$w = mysqli_fetch_assoc($wynik);
 	if($haslo == $w['haslo'])
 	{
-	   header('Location: glowna.php');
-	   // echo("hhasło ok");
+	   	$_SESSION['czyZalogowany'] = $login;
+		header('Location: glowny.php');
 	}
 	else
 	{
 	   header('Location: index.php');
-	   //echo("hhasło złe");
 	}
 ?>
 
