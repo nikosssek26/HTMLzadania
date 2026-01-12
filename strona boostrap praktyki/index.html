@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LOGOWANIE</title>
+    <link href="css/bootstrap.css" rel="stylesheet" >
+    <link href="style.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Metal+Mania">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800" rel="stylesheet">
+  </head>
+  <script src="js/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<body>
+    <div class="vignette"></div>
+    <div id="beforelogin" class="login-container">
+        <div id="loginform"></div>
+        <div class="form-wrapper font3">
+            <p class="text-center fs-3">Welcome User!</p>
+            <form>
+                <div class="mb-3">
+                    <label for="Email1" class="form-label">E-Mail:</label>
+                    <input type="email" class="form-control" id="Email1" required>
+                </div>
+                <div class="mb-3">
+                    <label for="pass1" class="form-label">Password:</label>
+                    <input type="password" class="form-control" id="pass1" required>
+                </div>
+                <div class="d-grid">
+                    <button type="button" class="btn btn-outline-light mt-2" onclick="submitlogin()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

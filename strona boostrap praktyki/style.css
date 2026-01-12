@@ -1,0 +1,75 @@
+body {
+    background-color: rgb(33, 42, 55);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    width: 90%;       
+    max-width: 400px; 
+    position: relative;
+    z-index: 2;
+}
+
+#loginform {
+    background: linear-gradient(315deg, #FFFFFF, #3745557a, #FFFFFF);
+    background-size: 600% 600%;
+    animation: AnimationName 10s ease infinite;
+    
+    position: absolute;
+    top: -5px; bottom: -5px; left: -5px; right: -5px;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.form-wrapper {
+    background-color: rgb(39, 44, 54);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+}
+
+#Email1, #pass1 {
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 2px solid white !important; /* Force visibility */
+    border-radius: 0;
+    outline: none;
+    height: 40px;
+    transition: all 0.3s;
+}
+
+#Email1:focus, #pass1:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 11%}
+    50%{background-position:100% 90%}
+    100%{background-position:0% 11%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 11%}
+    50%{background-position:100% 90%}
+    100%{background-position:0% 11%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 11%}
+    50%{background-position:100% 90%}
+    100%{background-position:0% 11%}
+}
+
+#animationlogin{
+  animation: loginpageznikanie 2s ;
+  animation-fill-mode: forwards;  
+}
+
+@keyframes loginpageznikanie {
+  from { opacity: 1;}
+  to { opacity: 0; display: none;}
+}
