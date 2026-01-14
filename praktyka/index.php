@@ -15,23 +15,23 @@ session_start();
     <script src="js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="vignette"></div>
-    
-    <div id="beforelogin" class="login-container">
+    <canvas id="matrixCanvas"></canvas>
+
+    <div id="beforelogin" class="login-container mx-auto my-auto">
         <div id="loginform"></div>
         <div class="form-wrapper font3">
-            <p class="text-center fs-3">Welcome User!</p>
+            <p class="text-center fs-3 accenttextcolor">Welcome User!</p>
             <form method="post" action="./logowanie.php">
                 <div class="mb-3">
-                    <label for="Login1" class="form-label">Login:</label>
-                    <input type="text" class="form-control" id="Login1" name="login" required>
+                    <label for="Login1" class="form-label accenttextcolor">Login:</label>
+                    <input type="text" class="form-control accenttextcolor" id="Login1" name="login" required>
                 </div>
                 <div class="mb-3">
-                    <label for="pass1" class="form-label">Password:</label>
-                    <input type="password" class="form-control" id="pass1" name="haslo" required>
+                    <label for="pass1" class="form-label accenttextcolor">Password:</label>
+                    <input type="password" class="form-control accenttextcolor" id="pass1" name="haslo" required>
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-outline-light mt-2">Submit</button>
+                    <button type="submit" class="btn btn-outline-light mt-2 accenttextcolor">Submit</button>
                 </div>
             </form>
             <?php
@@ -44,5 +44,50 @@ session_start();
 			?>
         </div>
     </div>
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const chars = "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const charArray = chars.split("");
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize; 
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1; 
+        }
+
+        function draw() {
+            const rootStyle = getComputedStyle(document.documentElement);
+            const accentColor = rootStyle.getPropertyValue('--accent').trim() || "#0F0";
+
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = accentColor; 
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+    </script>
 </body>
 </html>

@@ -54,7 +54,7 @@ if(!isset($_SESSION['czyZalogowany']))
         <div id="stats-overview" class="m-4">
             <header class="top-bar d-flex justify-content-between align-items-center mb-4">
                 <div>
-                    <h4 style="font-family: 'Orbitron'; margin:0;">System Overview</h4>
+                    <h4 style="font-family: 'Orbitron'; margin:0;" class="accenttextcolor">System Overview</h4>
                     <small class="text-muted">Hello, <?php echo htmlspecialchars($_SESSION['login'] ?? 'User'); ?> -- session active</small>
                 </div>
                 <div class="user-info">
@@ -89,7 +89,7 @@ if(!isset($_SESSION['czyZalogowany']))
             </div>
         </div>
         <div class="content-card">
-            <h5 class="mb-4" style="font-family: 'Orbitron';">Last Activity</h5>
+            <h5 class="mb-4 accenttextcolor" style="font-family: 'Orbitron';">Last Activity</h5>
             <div class="table-responsive">
                 <table class="table table-dark table-hover custom-table">
                     <thead>
@@ -177,14 +177,14 @@ if(!isset($_SESSION['czyZalogowany']))
     </main>
     <main class="main-content" id="main-content-settings" style="display:none;">
         <div class="content-card">
-            <h5 class="mb-4" style="font-family: 'Orbitron';">Settings</h5>
+            <h5 class="mb-4 accenttextcolor" style="font-family: 'Orbitron';">Settings</h5>
             <div class="settings-section">
                 <p>Change the color theme of the panel:</p>
                 <input type="color" id="html5colorpicker" onchange="updateAccentColor()" value="#00d2ff" style="width:85%;">
             </div>
         </div>
         <div class="content-card mt-4">
-            <h5 class="mb-4" style="font-family: 'Orbitron';">Change Password</h5>
+            <h5 class="mb-4 accenttextcolor" style="font-family: 'Orbitron';">Change Password</h5>
             <form method="post" action="./change_password.php">
                 <div class="mb-3">
                     <label for="Login1" class="form-label">Login:</label>
