@@ -1,1 +1,1 @@
-ZADANIA ZROBIONE PRZEZ NIKODEMA I. FAJNE CN?
+Robie sobie tutaj zadania związane z robieniem stron internetowych
