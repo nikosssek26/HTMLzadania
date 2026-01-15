@@ -1,9 +1,13 @@
 :root {
     --bg-dark: rgb(42, 42, 42);
+    --bg-darker: #0f1114;
     --content-bg: rgb(33, 42, 55);
     --accent: #00d2ff;
     --accent2: rgba(0, 210, 255, 0.6);
     --text-muted: rgba(255, 255, 255, 0.6);
+    --color: rgb(255, 255, 255);
+    --btn-outline-accent: var(--accent);
+    --btn-accent: var(--accent);
 }
 
 /* Podstawowe ustawienia */
@@ -28,7 +32,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-color: black;
+    background-color: #000;
 }
 
 .login-container {
@@ -50,8 +54,8 @@ body {
 }
 
 .form-wrapper {
-    background-color: var(--bg-dark);
-    color: white;
+    background-color: var(--bg-darker);
+    color: var(--color);
     padding: 2rem;
     border-radius: 8px;
     width: 100%;
@@ -59,14 +63,13 @@ body {
 
 #Login1, #pass1 {
     background-color: transparent;
-    color: white;
+    color: var(--color);
     border: none;
     border-bottom: 2px solid white !important;
     border-radius: 0;
     outline: none;
 }
 
- 
 #afterlogin {
     display: block;
     width: 100%;
@@ -116,16 +119,20 @@ body {
 
 .nav-link:hover, .nav-link.active {
     background-color: rgba(255, 255, 255, 0.1);
-    color: white !important;
+    color: var(--color) !important;
     border: 1px solid #686a88;
     text-shadow: 0 0 10px var(--accent);
+}
+
+.nav-link i {
+    color: var(--accent-color); /* Twoja zmienna koloru */
 }
 
 /* Główna treść */
 .main-content {
     flex-grow: 1;
     height: 100%;
-    background-color: #0f1114 !important; 
+    background-color: var(--bg-darker) !important; 
     overflow-y: auto;
     padding: 20px; 
 }
@@ -158,7 +165,7 @@ body {
 .stat-value {
     font-family: 'Orbitron', sans-serif;
     font-size: 2rem;
-    color: var(--accent);
+    color: var(--color);
     text-shadow: 0 0 4px var(--accent);
 }
 
@@ -178,6 +185,73 @@ body {
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 15px;
+}
+
+.custom-table{
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead, tr{
+    border: none !important;
+    border-radius: 10px;
+    margin: 5px;
+}
+ 
+.modal-content {
+    background-color: var(--bg-dark) !important;
+    border: 1px solid var(--accent);
+    color: white;
+}
+
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.portfolio-modal-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
+}
+
+.list-unstyled li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.btn-outline-infome{
+    color: var(--btn-accent);
+    border-color: var(--btn-outline-accent);
+}
+
+.btn-me{
+    background-color: transparent;
+    color: var(--btn-accent);
+    border: 2px solid var(--btn-outline-accent);
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    height: 50px;
+}
+
+.btn-me:hover{
+    background-color: var(--btn-outline-accent);
+    color: black;
+    box-shadow: 0 0 10px var(--accent);
+    transition: 0.3s;
+}
+
+.toast {
+    background-color: var(--bg-darker) !important; /* Półprzezroczyste czarne tło */
+    border: 1px solid var(--accent) !important; /* Czerwona ramka błędu */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); /* Poświata */
+    backdrop-filter: blur(5px);
+}
+
+.toast-body {
+    color: var(--accent); /* Jasnoczerwony tekst */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Animacje */
@@ -227,4 +301,27 @@ body {
     50% {
         transform: translateY(-20px);
     }
+}
+
+progress {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 10px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--accent); 
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--accent);
+    transition: width 0.5s ease, background-color 0.3s ease;
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--accent);
+    border-radius: 5px;
 }

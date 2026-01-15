@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const statsElement4 = document.querySelector('div[name="playerstats4"]');
 
         if (statsElement) {
-            const newValue = Math.floor(Math.random() * (12000 - 500 + 1)) + 500;
+            const newValue = Math.floor(Math.random() * 100000);
             
             // 2. Animacja zniknięcia
             statsElement.style.transition = "opacity 0.4s ease";
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 450);
         }
         if (statsElement2) {
-            const nextTick = Math.floor(Math.random() * (120 - 5 + 1)) + 5;
+            const nextTick = Math.floor(Math.random() * (121+ 1)) + 8;
             
             statsElement2.style.transition = "opacity 0.4s ease";
             statsElement2.style.opacity = 0;
@@ -29,6 +29,10 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 statsElement2.textContent = nextTick.toLocaleString(); 
                 statsElement2.style.opacity = 1;
+                var elem = document.getElementById("RAMusagebar");
+                if (elem) {
+                    elem.value = nextTick;
+                }
             }, 450);
         }
         if (statsElement3) {
@@ -36,10 +40,15 @@ document.addEventListener("DOMContentLoaded", function() {
             
             statsElement3.style.transition = "opacity 0.4s ease";
             statsElement3.style.opacity = 0;
-
+        
             setTimeout(() => {
                 statsElement3.textContent = newValue.toLocaleString(); 
                 statsElement3.style.opacity = 1;
+
+                var elem = document.getElementById("CPUusagebar");
+                if (elem) {
+                    elem.value = newValue;
+                }
             }, 500);
             if (newValue > 70) {
                 addLogEntry2(newValue);
@@ -54,6 +63,10 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 statsElement4.textContent = newValue.toLocaleString(); 
                 statsElement4.style.opacity = 1;
+                            var elem = document.getElementById("GPUusagebar");
+                if (elem) {
+                    elem.value = newValue;
+                }
             }, 550);
             if (newValue > 70) {
                 addLogEntry3(newValue);
@@ -132,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function showContent(contentId, element) {
-    const sections = ['main-content', 'main-content-stats', 'main-content-users', 'main-content-settings'];
+    const sections = ['main-content', 'main-content-stats', 'main-content-users', 'main-content-settings', 'main-content-buy'];
     sections.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';

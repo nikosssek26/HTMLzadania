@@ -12,8 +12,33 @@ session_start();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron&family=Metal+Mania&family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap">
     <script src="js/scripts.js"></script>
+    <script src="js/scriptscolor.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </head>
+<?php if(isset($_SESSION['komunikat'])): ?>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="errorToast" class="toast show align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body font3">
+                    <strong>BŁĄD:</strong> <?php echo $_SESSION['komunikat']; ?>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <?php unset($_SESSION['komunikat']); ?>
+    
+    <script>
+        // Automatyczne ukrycie powiadomienia po 5 sekundach
+        setTimeout(function() {
+            var toastEl = document.getElementById('errorToast');
+            if(toastEl) {
+                var toast = new bootstrap.Toast(toastEl);
+                toast.hide();
+            }
+        }, 5000);
+    </script>
+<?php endif; ?>
 <body>
     <canvas id="matrixCanvas"></canvas>
 
@@ -31,7 +56,7 @@ session_start();
                     <input type="password" class="form-control accenttextcolor" id="pass1" name="haslo" required>
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-outline-light mt-2 accenttextcolor">Submit</button>
+                    <button type="submit" class="btn-me btn-outline-infome mt-2 accenttextcolor">Submit</button>
                 </div>
             </form>
             <?php
@@ -68,7 +93,7 @@ session_start();
 
         function draw() {
             const rootStyle = getComputedStyle(document.documentElement);
-            const accentColor = rootStyle.getPropertyValue('--accent').trim() || "#0F0";
+            const accentColor = localStorage.getItem('savedAccentColor');
 
             ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
