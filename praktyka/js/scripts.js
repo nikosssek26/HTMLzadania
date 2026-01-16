@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function showContent(contentId, element) {
-    const sections = ['main-content', 'main-content-stats', 'main-content-users', 'main-content-settings', 'main-content-buy'];
+    const sections = ['main-content-home', 'main-content-cart', 'main-content-buy', 'main-content-stats', 'main-content-users', 'main-content-settings'];
     sections.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';

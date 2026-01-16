@@ -22,6 +22,7 @@ if(!isset($_SESSION['czyZalogowany']))
     <script src="js/scripts.js"></script>
     <script src="js/scriptscolor.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scriptcart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/scriptsstats.js"></script>
   </head>
@@ -36,10 +37,16 @@ if(!isset($_SESSION['czyZalogowany']))
         </div>
         <ul class="nav flex-column mt-4">
             <li class="nav-item">
-                <a href="#" onclick="showContent('main-content', this)" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#" onclick="showContent('main-content-home', this)" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
             </li>
             <li class="nav-item">
-                <a href="#" onclick="showContent('main-content-buy', this)" class="nav-link"><i class="fa-solid fa-cart-shopping"></i> Buy</a>
+                <a href="#" onclick="showContent('main-content-cart', this)" class="nav-link">
+                    <i class="fa-solid fa-cart-shopping"></i> Cart 
+                    <span id="cart-count" class="badge text-white ms-1" style="display: none; font-size: 0.7rem; background-color: var(--accent); box-shadow: 0 0 5px var(--accent);" >0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" onclick="showContent('main-content-buy', this)" class="nav-link"><i class="fa-solid fa-coins"></i> Buy</a>
             </li>
             <li class="nav-item">
                 <a href="#" onclick="showContent('main-content-stats', this)" class="nav-link"><i class="fa-solid fa-chart-area"></i> Stats</a>
@@ -55,7 +62,7 @@ if(!isset($_SESSION['czyZalogowany']))
             <hr><a href="logout.php" class="btn btn-outline-danger btn-sm w-100">Log Out</a>
         </div>
     </nav>
-    <main class="main-content" id="main-content"> <!-- Main Content ##########################################-->
+    <main class="main-content" id="main-content-home"> <!-- Main Content ##########################################-->
         <div id="stats-overview" class="m-4">
             <header class="top-bar d-flex justify-content-between align-items-center mb-4">
                 <div>
@@ -63,7 +70,7 @@ if(!isset($_SESSION['czyZalogowany']))
                     <small class="text-muted">Hello, <?php echo htmlspecialchars($_SESSION['login'] ?? 'User'); ?> -- session active</small>
                 </div>
                 <div class="user-info">
-                    <div class="fw-bold">Server <small class="text-success">● Online</small></div> 
+                    <div class="fw-bold">Server - <n class="accenttextcolor">THE BEAST</n> <small class="text-success">● Online</small></div> 
                 </div>
             </header>
             <div class="row g-4 mb-4">
@@ -136,13 +143,37 @@ if(!isset($_SESSION['czyZalogowany']))
             </div>
         </div>
     </main>
+    <main class="main-content" id="main-content-cart" style="display:none;">
+        <div class="content-card">
+            <h5 class="mb-4 accenttextcolor" style="font-family: 'Orbitron';">Shopping Cart</h5>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover custom-table">
+                    <thead>
+                        <tr>
+                            <th>SERVER MODEL</th>
+                            <th>MONTHLY PRICE</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items-list">
+                        </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-4 p-3 rounded" style="background: rgba(0,0,0,0.2);">
+                <h4 class="mb-0">TOTAL: <span id="cart-total-price" class="accenttextcolor">0.00$</span></h4>
+                <div>
+                    <button class="btn btn-outline-secondary me-2" onclick="clearCart()">Clear Cart</button>
+                    <button class="btn btn-me px-4" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </main>
     <main class="main-content" id="main-content-buy" style="display:none;"> <!-- Buy Content ##########################################-->
         <div class="content-card">
             <section class="page-section portfolio mb-5" id="buy-portfolio">
                 <div class="container">
                     <h2 class="page-section-heading text-center text-uppercase pt-3 accenttextcolor" style="font-family: 'Orbitron';">SERVERS TO BUY</h2>
                     <hr class="mb-5">
-
                     <div class="row g-4 justify-content-center">
                         <div class="col-md-6 col-lg-4">
                             <div class="stat-card text-center h-100 d-flex flex-column justify-content-between p-4" style="cursor: default;">
@@ -152,8 +183,8 @@ if(!isset($_SESSION['czyZalogowany']))
                                 <h4 class="accenttextcolor">LOW-TIER</h4>
                                 <div class="text-muted small mb-3">
                                     <ul class="list-unstyled">
-                                        <li><i class="fas fa-microchip me-2"></i> 8 vCPU</li>
-                                        <li><i class="fas fa-memory me-2"></i> 32GB DDR4 RAM</li>
+                                        <li><i class="fas fa-microchip me-2"></i> 16 vCPU</li>
+                                        <li><i class="fas fa-memory me-2"></i> 32GB DDR4 4200MHz RAM</li>
                                         <li><i class="fas fa-hard-drive me-2"></i> 256GB SSD</li>
                                     </ul>
                                 </div>
@@ -170,12 +201,12 @@ if(!isset($_SESSION['czyZalogowany']))
                                 <h4 class="accenttextcolor">MID-RANGE</h4>
                                 <div class="text-muted small mb-3">
                                     <ul class="list-unstyled">
-                                        <li><i class="fas fa-microchip me-2"></i> 16 vCPU</li>
-                                        <li><i class="fas fa-memory me-2"></i> 64GB DDR5 RAM</li>
+                                        <li><i class="fas fa-microchip me-2"></i> 32 vCPU</li>
+                                        <li><i class="fas fa-memory me-2"></i> 64GB DDR5 6200 MHz RAM</li>
                                         <li><i class="fas fa-hard-drive me-2"></i> 520GB NVMe</li>
                                     </ul>
                                 </div>
-                                <h3 class="fw-bold mb-3">90.00$ <small class="fs-6 text-muted">/mo</small></h3>
+                                <h3 class="fw-bold mb-3">180.00$ <small class="fs-6 text-muted">/mo</small></h3>
                                 <button class="btn-me btn-outline-infome w-100" data-bs-toggle="modal" data-bs-target="#portfolioModal2">DETAILS</button>
                             </div>
                         </div>
@@ -188,12 +219,12 @@ if(!isset($_SESSION['czyZalogowany']))
                                 <h4 class="accenttextcolor">THE BEAST</h4>
                                 <div class="text-muted small mb-3">
                                     <ul class="list-unstyled">
-                                        <li><i class="fas fa-microchip me-2"></i> 32 vCPU</li>
-                                        <li><i class="fas fa-memory me-2"></i> 120GB DDR5 RAM</li>
-                                        <li><i class="fas fa-hard-drive me-2"></i> 1TB NVMe GEN4</li>
+                                        <li><i class="fas fa-microchip me-2"></i> 96 vCPU</li>
+                                        <li><i class="fas fa-memory me-2"></i> 120GB DDR5 6200 MHz RAM</li>
+                                        <li><i class="fas fa-hard-drive me-2"></i> 5TB NVMe GEN4</li>
                                     </ul>
                                 </div>
-                                <h3 class="fw-bold mb-3">240.00$ <small class="fs-6 text-muted">/mo</small></h3>
+                                <h3 class="fw-bold mb-3">360.00$ <small class="fs-6 text-muted">/mo</small></h3>
                                 <button class="btn-me btn-outline-infome w-100 active" data-bs-toggle="modal" data-bs-target="#portfolioModal3">DETAILS</button>
                                 <b class="text-muted mt-2">You own this server</b>
                             </div>
@@ -205,7 +236,7 @@ if(!isset($_SESSION['czyZalogowany']))
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content" style="border: 2px solid var(--accent); background: var(--bg-dark);">
                         <div class="modal-header border-0">
-                            <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #01 - Specifications</h5>
+                            <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #01 - Low Tier</h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
@@ -214,8 +245,8 @@ if(!isset($_SESSION['czyZalogowany']))
                                 <p class="mb-1 text-uppercase small text-muted">Stability status: <span class="text-danger">Automatic Restart on time: 8:00, 00:00</span></p>
                                 <hr class="mt-0">
                                 <div class="row">
-                                    <div class="col-6"><strong>CPU:</strong> 8 vCores</div>
-                                    <div class="col-6"><strong>RAM:</strong> 32 GB DDR4</div>
+                                    <div class="col-6"><strong>CPU:</strong> 16 vCores</div>
+                                    <div class="col-6"><strong>RAM:</strong> 32 GB DDR4 4200MHz</div>
                                     <div class="col-6"><strong>DISK:</strong> 256 GB SSD</div>
                                     <div class="col-6"><strong>DATA SPEED:</strong> 1 Gbps</div>
                                 </div>
@@ -223,17 +254,16 @@ if(!isset($_SESSION['czyZalogowany']))
                             </div>
                         </div>
                         <div class="modal-footer border-0">
-                            <button type="button" class="btn-me btn-outline-light w-100" data-bs-dismiss="modal" style="font-weight: bold;">ORDER NOW</button>
+                            <button type="button" class="btn-me btn-outline-light w-100" onclick="addToCart('Unit #01 - Low Tier', 30.00)">ADD TO CART</button>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="modal fade" id="portfolioModal2" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content" style="border: 2px solid var(--accent); background: var(--bg-dark); box-shadow: 0 0 20px var(--accent2);">
                         <div class="modal-header border-0">
-                            <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #02 - Advanced Config</h5>
+                            <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #02 - Advanced Tier</h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
@@ -242,8 +272,8 @@ if(!isset($_SESSION['czyZalogowany']))
                                 <p class="mb-1 text-uppercase small text-muted">Stability: <span class="text-info">99.9% Uptime</span></p>
                                 <hr class="mt-0">
                                 <div class="row">
-                                    <div class="col-6"><strong>CPU:</strong> 16 vCores High</div>
-                                    <div class="col-6"><strong>RAM:</strong> 64 GB DDR4</div>
+                                    <div class="col-6"><strong>CPU:</strong> 32 vCores High - Threadripper 7970X 4GHz</div>
+                                    <div class="col-6"><strong>RAM:</strong> 64 GB DDR5 6200 MHz</div>
                                     <div class="col-6"><strong>DISK:</strong> 520 GB NVMe</div>
                                     <div class="col-6"><strong>DATA SPEED:</strong> 2.5 Gbps</div>
                                 </div>
@@ -251,7 +281,7 @@ if(!isset($_SESSION['czyZalogowany']))
                             </div>
                         </div>
                         <div class="modal-footer border-0">
-                            <button type="button" class="btn-me btn-outline-light w-100" data-bs-dismiss="modal" style="font-weight: bold;">ORDER NOW</button>
+                           <button type="button" class="btn-me btn-outline-light w-100" onclick="addToCart('Unit #02 - Advanced Tier', 180.00)">ADD TO CART</button>
                         </div>
                     </div>
                 </div>
@@ -260,7 +290,7 @@ if(!isset($_SESSION['czyZalogowany']))
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content" style="border: 2px solid var(--accent); background: var(--bg-dark); box-shadow: 0 0 20px var(--accent2);">
                         <div class="modal-header border-0">
-                            <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #02 - THE BEAST</h5>
+                            <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #03 - THE BEAST</h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
@@ -269,9 +299,9 @@ if(!isset($_SESSION['czyZalogowany']))
                                 <p class="mb-1 text-uppercase small text-muted">Node status: <span class="text-success">Active</span></p>
                                 <hr class="mt-0">
                                 <div class="row">
-                                    <div class="col-6"><strong>CPU:</strong> 32 vCores High</div>
-                                    <div class="col-6"><strong>RAM:</strong> 120 GB DDR4</div>
-                                    <div class="col-6"><strong>DISK:</strong> 1T GB NVMe</div>
+                                    <div class="col-6"><strong>CPU:</strong> 96 vCores High - Threadripper PRO 9000</div>
+                                    <div class="col-6"><strong>RAM:</strong> 120 GB DDR5 6200 MHz</div>
+                                    <div class="col-6"><strong>DISK:</strong> 5TB GB NVMe</div>
                                     <div class="col-6"><strong>DATA SPEED:</strong> 5 Gbps</div>
                                 </div>
                                 <p class="mt-3 mb-0 small text-muted">Zastosowanie: Serwery gier (GTA V, ARK, CS2), bazy danych, API.</p>
