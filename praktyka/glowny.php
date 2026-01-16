@@ -16,12 +16,14 @@ if(!isset($_SESSION['czyZalogowany']))
     <title>Admin Panel  </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron&family=Metal+Mania&family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap">
+    <link href="style.css" rel="stylesheet">
     <script src="js/scripts.js"></script>
     <script src="js/scriptscolor.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/scriptsstats.js"></script>
   </head>
 <body> 
 <div id="afterlogin">
@@ -134,158 +136,163 @@ if(!isset($_SESSION['czyZalogowany']))
             </div>
         </div>
     </main>
-<main class="main-content" id="main-content-buy" style="display:none;">
-    <div class="content-card">
-        <section class="page-section portfolio mb-5" id="buy-portfolio">
-            <div class="container">
-                <h2 class="page-section-heading text-center text-uppercase pt-3 accenttextcolor" style="font-family: 'Orbitron';">SERVERS TO BUY</h2>
-                <hr class="mb-5">
-                
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="stat-card text-center h-100 d-flex flex-column justify-content-between p-4" style="cursor: default;">
-                            <div class="portfolio-item mx-auto mb-3" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                                <img class="img-fluid" style="cursor: pointer; width: 150px; transition: transform 0.3s;" src="img/1.png" alt="Low Server" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+    <main class="main-content" id="main-content-buy" style="display:none;"> <!-- Buy Content ##########################################-->
+        <div class="content-card">
+            <section class="page-section portfolio mb-5" id="buy-portfolio">
+                <div class="container">
+                    <h2 class="page-section-heading text-center text-uppercase pt-3 accenttextcolor" style="font-family: 'Orbitron';">SERVERS TO BUY</h2>
+                    <hr class="mb-5">
+
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="stat-card text-center h-100 d-flex flex-column justify-content-between p-4" style="cursor: default;">
+                                <div class="portfolio-item mx-auto mb-3" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                                    <img class="img-fluid" style="cursor: pointer; width: 150px; transition: transform 0.3s;" src="img/1.png" alt="Low Server" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                                </div>
+                                <h4 class="accenttextcolor">LOW-TIER</h4>
+                                <div class="text-muted small mb-3">
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-microchip me-2"></i> 8 vCPU</li>
+                                        <li><i class="fas fa-memory me-2"></i> 32GB DDR4 RAM</li>
+                                        <li><i class="fas fa-hard-drive me-2"></i> 256GB SSD</li>
+                                    </ul>
+                                </div>
+                                <h3 class="fw-bold mb-3">30.00$ <small class="fs-6 text-muted">/mo</small></h3>
+                                <button class="btn-me btn-outline-infome w-100" data-bs-toggle="modal" data-bs-target="#portfolioModal1">DETAILS</button>
                             </div>
-                            <h4 class="accenttextcolor">LOW-TIER</h4>
-                            <div class="text-muted small mb-3">
-                                <ul class="list-unstyled">
-                                    <li><i class="fas fa-microchip me-2"></i> 8 vCPU</li>
-                                    <li><i class="fas fa-memory me-2"></i> 32GB DDR4 RAM</li>
-                                    <li><i class="fas fa-hard-drive me-2"></i> 256GB SSD</li>
-                                </ul>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="stat-card text-center h-100 d-flex flex-column justify-content-between p-4">
+                                <div class="portfolio-item mx-auto mb-3" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                                    <img class="img-fluid" style="cursor: pointer; width: 150px; transition: transform 0.3s;" src="img/2.png" alt="Mediocre Server" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                                </div>
+                                <h4 class="accenttextcolor">MID-RANGE</h4>
+                                <div class="text-muted small mb-3">
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-microchip me-2"></i> 16 vCPU</li>
+                                        <li><i class="fas fa-memory me-2"></i> 64GB DDR5 RAM</li>
+                                        <li><i class="fas fa-hard-drive me-2"></i> 520GB NVMe</li>
+                                    </ul>
+                                </div>
+                                <h3 class="fw-bold mb-3">90.00$ <small class="fs-6 text-muted">/mo</small></h3>
+                                <button class="btn-me btn-outline-infome w-100" data-bs-toggle="modal" data-bs-target="#portfolioModal2">DETAILS</button>
                             </div>
-                            <h3 class="fw-bold mb-3">30.00$ <small class="fs-6 text-muted">/mo</small></h3>
-                            <button class="btn-me btn-outline-infome w-100" data-bs-toggle="modal" data-bs-target="#portfolioModal1">DETAILS</button>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="stat-card text-center h-100 d-flex flex-column justify-content-between p-4" style="border: 2px solid var(--accent); border-radius: 8px; box-shadow: 0 0 15px var(--accent2);">
+                                <div class="portfolio-item mx-auto mb-3" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                                    <img class="img-fluid" style="cursor: pointer; width: 150px; transition: transform 0.3s;" src="img/3.png" alt="The Beast" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                                </div>
+                                <h4 class="accenttextcolor">THE BEAST</h4>
+                                <div class="text-muted small mb-3">
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-microchip me-2"></i> 32 vCPU</li>
+                                        <li><i class="fas fa-memory me-2"></i> 120GB DDR5 RAM</li>
+                                        <li><i class="fas fa-hard-drive me-2"></i> 1TB NVMe GEN4</li>
+                                    </ul>
+                                </div>
+                                <h3 class="fw-bold mb-3">240.00$ <small class="fs-6 text-muted">/mo</small></h3>
+                                <button class="btn-me btn-outline-infome w-100 active" data-bs-toggle="modal" data-bs-target="#portfolioModal3">DETAILS</button>
+                                <b class="text-muted mt-2">You own this server</b>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="col-md-6 col-lg-4">
-                        <div class="stat-card text-center h-100 d-flex flex-column justify-content-between p-4">
-                            <div class="portfolio-item mx-auto mb-3" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                                <img class="img-fluid" style="cursor: pointer; width: 150px; transition: transform 0.3s;" src="img/2.png" alt="Mediocre Server" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
-                            </div>
-                            <h4 class="accenttextcolor">MID-RANGE</h4>
-                            <div class="text-muted small mb-3">
-                                <ul class="list-unstyled">
-                                    <li><i class="fas fa-microchip me-2"></i> 16 vCPU</li>
-                                    <li><i class="fas fa-memory me-2"></i> 64GB DDR5 RAM</li>
-                                    <li><i class="fas fa-hard-drive me-2"></i> 520GB NVMe</li>
-                                </ul>
-                            </div>
-                            <h3 class="fw-bold mb-3">90.00$ <small class="fs-6 text-muted">/mo</small></h3>
-                            <button class="btn-me btn-outline-infome w-100" data-bs-toggle="modal" data-bs-target="#portfolioModal2">DETAILS</button>
+                </div>
+            </section>
+            <div class="modal fade" id="portfolioModal1" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content" style="border: 2px solid var(--accent); background: var(--bg-dark);">
+                        <div class="modal-header border-0">
+                            <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #01 - Specifications</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4">
-                        <div class="stat-card text-center h-100 d-flex flex-column justify-content-between p-4" style="border: 2px solid var(--accent); border-radius: 8px; box-shadow: 0 0 15px var(--accent2);">
-                            <div class="portfolio-item mx-auto mb-3" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                                <img class="img-fluid" style="cursor: pointer; width: 150px; transition: transform 0.3s;" src="img/3.png" alt="The Beast" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                        <div class="modal-body text-center">
+                            <img class="img-fluid mb-4" src="img/1.png" style="width: 120px;" alt="...">
+                            <div class="specs-grid text-start bg-darker p-3 rounded" style="background: rgba(0,0,0,0.3);">
+                                <p class="mb-1 text-uppercase small text-muted">Stability status: <span class="text-danger">Automatic Restart on time: 8:00, 00:00</span></p>
+                                <hr class="mt-0">
+                                <div class="row">
+                                    <div class="col-6"><strong>CPU:</strong> 8 vCores</div>
+                                    <div class="col-6"><strong>RAM:</strong> 32 GB DDR4</div>
+                                    <div class="col-6"><strong>DISK:</strong> 256 GB SSD</div>
+                                    <div class="col-6"><strong>DATA SPEED:</strong> 1 Gbps</div>
+                                </div>
+                                <p class="mt-3 mb-0 small text-muted">Idealny dla: botów Discord, małych stron WWW, skryptów automatyzacji.</p>
                             </div>
-                            <h4 class="accenttextcolor">THE BEAST</h4>
-                            <div class="text-muted small mb-3">
-                                <ul class="list-unstyled">
-                                    <li><i class="fas fa-microchip me-2"></i> 32 vCPU</li>
-                                    <li><i class="fas fa-memory me-2"></i> 120GB DDR5 RAM</li>
-                                    <li><i class="fas fa-hard-drive me-2"></i> 1TB NVMe GEN4</li>
-                                </ul>
-                            </div>
-                            <h3 class="fw-bold mb-3">240.00$ <small class="fs-6 text-muted">/mo</small></h3>
-                            <button class="btn-me btn-outline-infome w-100 active" data-bs-toggle="modal" data-bs-target="#portfolioModal3">DETAILS</button>
-                            <b class="text-muted mt-2">You own this server</b>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <button type="button" class="btn-me btn-outline-light w-100" data-bs-dismiss="modal" style="font-weight: bold;">ORDER NOW</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <div class="modal fade" id="portfolioModal1" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="border: 2px solid var(--accent); background: var(--bg-dark);">
-                    <div class="modal-header border-0">
-                        <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #01 - Specifications</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="img-fluid mb-4" src="img/1.png" style="width: 120px;" alt="...">
-                        <div class="specs-grid text-start bg-darker p-3 rounded" style="background: rgba(0,0,0,0.3);">
-                            <p class="mb-1 text-uppercase small text-muted">Stability status: <span class="text-danger">Automatic Restart on time: 8:00, 00:00</span></p>
-                            <hr class="mt-0">
-                            <div class="row">
-                                <div class="col-6"><strong>CPU:</strong> 8 vCores</div>
-                                <div class="col-6"><strong>RAM:</strong> 32 GB DDR4</div>
-                                <div class="col-6"><strong>DISK:</strong> 256 GB SSD</div>
-                                <div class="col-6"><strong>DATA SPEED:</strong> 1 Gbps</div>
+
+            <div class="modal fade" id="portfolioModal2" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content" style="border: 2px solid var(--accent); background: var(--bg-dark); box-shadow: 0 0 20px var(--accent2);">
+                        <div class="modal-header border-0">
+                            <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #02 - Advanced Config</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="img-fluid mb-4" src="img/2.png" style="width: 120px;" alt="...">
+                            <div class="specs-grid text-start p-3 rounded" style="background: rgba(0,0,0,0.3);">
+                                <p class="mb-1 text-uppercase small text-muted">Stability: <span class="text-info">99.9% Uptime</span></p>
+                                <hr class="mt-0">
+                                <div class="row">
+                                    <div class="col-6"><strong>CPU:</strong> 16 vCores High</div>
+                                    <div class="col-6"><strong>RAM:</strong> 64 GB DDR4</div>
+                                    <div class="col-6"><strong>DISK:</strong> 520 GB NVMe</div>
+                                    <div class="col-6"><strong>DATA SPEED:</strong> 2.5 Gbps</div>
+                                </div>
+                                <p class="mt-3 mb-0 small text-muted">Zastosowanie: Serwery gier (Minecraft/CS), bazy danych, API.</p>
                             </div>
-                            <p class="mt-3 mb-0 small text-muted">Idealny dla: botów Discord, małych stron WWW, skryptów automatyzacji.</p>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <button type="button" class="btn-me btn-outline-light w-100" data-bs-dismiss="modal" style="font-weight: bold;">ORDER NOW</button>
                         </div>
                     </div>
-                    <div class="modal-footer border-0">
-                        <button type="button" class="btn-me btn-outline-light w-100" data-bs-dismiss="modal" style="font-weight: bold;">ORDER NOW</button>
+                </div>
+            </div>
+            <div class="modal fade" id="portfolioModal3" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content" style="border: 2px solid var(--accent); background: var(--bg-dark); box-shadow: 0 0 20px var(--accent2);">
+                        <div class="modal-header border-0">
+                            <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #02 - THE BEAST</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="img-fluid mb-4" src="img/2.png" style="width: 120px;" alt="...">
+                            <div class="specs-grid text-start p-3 rounded" style="background: rgba(0,0,0,0.3);">
+                                <p class="mb-1 text-uppercase small text-muted">Node status: <span class="text-success">Active</span></p>
+                                <hr class="mt-0">
+                                <div class="row">
+                                    <div class="col-6"><strong>CPU:</strong> 32 vCores High</div>
+                                    <div class="col-6"><strong>RAM:</strong> 120 GB DDR4</div>
+                                    <div class="col-6"><strong>DISK:</strong> 1T GB NVMe</div>
+                                    <div class="col-6"><strong>DATA SPEED:</strong> 5 Gbps</div>
+                                </div>
+                                <p class="mt-3 mb-0 small text-muted">Zastosowanie: Serwery gier (GTA V, ARK, CS2), bazy danych, API.</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <button type="button" class="btn-me w-100 active" data-bs-dismiss="modal" style="color: black; font-weight: bold;">OWNED</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="modal fade" id="portfolioModal2" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="border: 2px solid var(--accent); background: var(--bg-dark); box-shadow: 0 0 20px var(--accent2);">
-                    <div class="modal-header border-0">
-                        <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #02 - Advanced Config</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="img-fluid mb-4" src="img/2.png" style="width: 120px;" alt="...">
-                        <div class="specs-grid text-start p-3 rounded" style="background: rgba(0,0,0,0.3);">
-                            <p class="mb-1 text-uppercase small text-muted">Stability: <span class="text-info">99.9% Uptime</span></p>
-                            <hr class="mt-0">
-                            <div class="row">
-                                <div class="col-6"><strong>CPU:</strong> 16 vCores High</div>
-                                <div class="col-6"><strong>RAM:</strong> 64 GB DDR4</div>
-                                <div class="col-6"><strong>DISK:</strong> 520 GB NVMe</div>
-                                <div class="col-6"><strong>DATA SPEED:</strong> 2.5 Gbps</div>
-                            </div>
-                            <p class="mt-3 mb-0 small text-muted">Zastosowanie: Serwery gier (Minecraft/CS), bazy danych, API.</p>
-                        </div>
-                    </div>
-                    <div class="modal-footer border-0">
-                        <button type="button" class="btn-me btn-outline-light w-100" data-bs-dismiss="modal" style="font-weight: bold;">ORDER NOW</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="portfolioModal3" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="border: 2px solid var(--accent); background: var(--bg-dark); box-shadow: 0 0 20px var(--accent2);">
-                    <div class="modal-header border-0">
-                        <h5 class="modal-title accenttextcolor" style="font-family: 'Orbitron';">Unit #02 - THE BEAST</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="img-fluid mb-4" src="img/2.png" style="width: 120px;" alt="...">
-                        <div class="specs-grid text-start p-3 rounded" style="background: rgba(0,0,0,0.3);">
-                            <p class="mb-1 text-uppercase small text-muted">Node status: <span class="text-success">Active</span></p>
-                            <hr class="mt-0">
-                            <div class="row">
-                                <div class="col-6"><strong>CPU:</strong> 32 vCores High</div>
-                                <div class="col-6"><strong>RAM:</strong> 120 GB DDR4</div>
-                                <div class="col-6"><strong>DISK:</strong> 1T GB NVMe</div>
-                                <div class="col-6"><strong>DATA SPEED:</strong> 5 Gbps</div>
-                            </div>
-                            <p class="mt-3 mb-0 small text-muted">Zastosowanie: Serwery gier (GTA V, ARK, CS2), bazy danych, API.</p>
-                        </div>
-                    </div>
-                    <div class="modal-footer border-0">
-                        <button type="button" class="btn-me w-100 active" data-bs-dismiss="modal" style="color: black; font-weight: bold;">OWNED</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+    </main>
     <main class="main-content" id="main-content-stats" style="display:none;"> <!-- Stats Content ##########################################-->
         <div class="content-card">
-            <h1>Strona w budowie</h1>
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 class="accenttextcolor" style="font-family: 'Orbitron';">User Growth</h5>
+                    <canvas id="myChart" style="width:100%;max-width:700px;max-height: 400px;"></canvas>
+                </div>
+            </div>
         </div>
     </main>
     <main class="main-content" id="main-content-users" style="display:none;"> <!-- Users Content ##########################################-->
@@ -325,7 +332,7 @@ if(!isset($_SESSION['czyZalogowany']))
                             echo "<tr><td colspan='3' class='text-danger'>Błąd zapytania: " . mysqli_error($conn) . "</td></tr>";
                         }
                         ?>
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>

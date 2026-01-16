@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 450);
         }
         if (statsElement3) {
-            const newValue = Math.floor(Math.random() * 101);
+            const newValue = Math.floor(Math.random() * 102);
             
             statsElement3.style.transition = "opacity 0.4s ease";
             statsElement3.style.opacity = 0;
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
         if (statsElement4) {
-            const newValue = Math.floor(Math.random() * 101);
+            const newValue = Math.floor(Math.random() * 102);
             
             statsElement4.style.transition = "opacity 0.4s ease";
             statsElement4.style.opacity = 0;
