@@ -6,9 +6,10 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LOGOWANIE</title>
+    <title>Login Page</title>
+    <link rel="icon" type="image/x-icon" href="img/admin-icon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron&family=Metal+Mania&family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap">
     <script src="js/scripts.js"></script>

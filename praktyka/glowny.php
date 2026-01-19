@@ -13,12 +13,13 @@ if(!isset($_SESSION['czyZalogowany']))
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Panel  </title>
+    <title>Admin Panel</title>
+    <link rel="icon" type="image/x-icon" href="img/admin-icon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron&family=Metal+Mania&family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap">
-    <link href="style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <script src="js/scripts.js"></script>
     <script src="js/scriptscolor.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -29,7 +30,7 @@ if(!isset($_SESSION['czyZalogowany']))
 <body> 
 <div id="afterlogin">
     <div class="dashboard-layout">
-    <nav class="sidebar"> <!-- Sidebar navigation ##########################################-->
+    <nav class="sidebar"> <!-- Sidebar navigation ##########################################--> 
         <div class="sidebar-header">
                 <h4 class="wave-text">
                     <span>D</span><span>A</span><span>S</span><span>H</span><span>B</span><span>O</span><span>A</span><span>R</span><span>D</span>
@@ -39,6 +40,7 @@ if(!isset($_SESSION['czyZalogowany']))
             <li class="nav-item">
                 <a href="#" onclick="showContent('main-content-home', this)" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
             </li>
+            <hr>
             <li class="nav-item">
                 <a href="#" onclick="showContent('main-content-cart', this)" class="nav-link">
                     <i class="fa-solid fa-cart-shopping"></i> Cart 

@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     backgroundColor: [
                         accentColor, 
                         accentColor, 
-                        "#ff4d4d",
+                        "#ff4d4d", // Beast może mieć inny kolor dla wyróżnienia
                         accentColor, 
                         accentColor
                     ],
                     borderColor: "rgba(255, 255, 255, 0.2)",
                     borderWidth: 1,
-                    borderRadius: 5
+                    borderRadius: 5 // Zaokrąglone rogi słupków (wygląda nowocześniej)
                 }]
             },
             options: {
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 maintainAspectRatio: false,
                 plugins: {
                     legend: {
-                        display: false
+                        display: false // Ukrywamy legendę, bo mamy label pod słupkami
                     },
                     tooltip: {
                         backgroundColor: "rgba(0, 0, 0, 0.8)",

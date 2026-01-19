@@ -1,19 +1,24 @@
+// Inicjalizacja koszyka z pamięci przeglądarki
 let cart = JSON.parse(localStorage.getItem('adminPanelCart')) || [];
 
+// Funkcja dodawania produktu
 function addToCart(name, price) {
     cart.push({ name: name, price: price });
     saveCart();
     renderCart();
     
+    // Wizualne potwierdzenie (opcjonalne)
     alert("Added " + name + " to cart!");
 }
 
+// Funkcja usuwania produktu
 function removeFromCart(index) {
     cart.splice(index, 1);
     saveCart();
     renderCart();
 }
 
+// Czyszczenie koszyka
 function clearCart() {
     if(confirm("Empty your cart?")) {
         cart = [];
@@ -22,10 +27,12 @@ function clearCart() {
     }
 }
 
+// Zapisywanie do localStorage
 function saveCart() {
     localStorage.setItem('adminPanelCart', JSON.stringify(cart));
 }
 
+// Wyświetlanie koszyka i aktualizacja UI
 function renderCart() {
     const listElement = document.getElementById('cart-items-list');
     const totalElement = document.getElementById('cart-total-price');
@@ -57,6 +64,7 @@ function renderCart() {
 
     totalElement.innerText = total.toFixed(2) + "$";
     
+    // Aktualizacja licznika na pasku bocznym
     if (cart.length > 0) {
         countBadge.innerText = cart.length;
         countBadge.style.display = 'inline-block';
@@ -73,4 +81,9 @@ function checkout() {
     alert("Connecting to secure payment gateway...");
 }
 
+// Uruchom renderowanie po załadowaniu strony
 document.addEventListener('DOMContentLoaded', renderCart);
+
+// Dodaj 'main-content-cart' do tablicy sekcji w Twojej funkcji showContent
+// Zaktualizuj funkcję showContent w scripts.js, aby zawierała nową sekcję:
+// const sections = ['main-content', 'main-content-stats', 'main-content-users', 'main-content-settings', 'main-content-buy', 'main-content-cart'];
