@@ -1,4 +1,4 @@
-# HTML - BOOTSTRAP CSS JAVA-SCRIPT
+# HTML - BOOTSTRAP CSS JAVASCRIPT
 
 
 Robie sobie tutaj zadania związane z robieniem stron internetowych
