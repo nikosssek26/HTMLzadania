@@ -7,8 +7,7 @@ if(!isset($_SESSION['czyZalogowany']))
 	exit();
 }
 ?>
-
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="pl">
   <head>
     <meta charset="utf-8">
@@ -397,7 +396,7 @@ if(!isset($_SESSION['czyZalogowany']))
                     <input type="password" class="form-control" id="pass1" name="confirmNewPassword" required>
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-outline-light mt-2">Change Password</button>
+                    <a href="./change_password.php"><button type="submit" class="btn-me btn-outline-light mt-2" >Change Password</button></a>
                 </div>
             </form>
         </div>

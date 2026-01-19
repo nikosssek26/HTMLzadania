@@ -24,6 +24,8 @@ if (isset($_POST['currentPassword'], $_POST['newPassword'], $_POST['confirmNewPa
                 
                 if (mysqli_query($conn, $sql)) {
                     echo '<script>alert("Hasło zostało pomyślnie zmienione.")</script>';
+                    header("Location: index.php");
+                    exit();
                 } else {
                     echo '<script>alert("Błąd bazy danych podczas aktualizacji.")</script>';
                 }
