@@ -241,6 +241,16 @@ thead, tr{
     transition: 0.3s;
 }
 
+.btn-meoff{
+    background-color: transparent;
+    color: red;
+    border: 2px solid red;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    height: 50px;
+}
+
 .toast {
     background-color: var(--bg-darker) !important; /* Półprzezroczyste czarne tło */
     border: 1px solid var(--accent) !important; /* Czerwona ramka błędu */

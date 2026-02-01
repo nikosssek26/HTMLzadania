@@ -23,8 +23,9 @@ if(!isset($_SESSION['czyZalogowany']))
     <script src="js/scriptscolor.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scriptcart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/scriptserver.js"></script>
     <script src="js/scriptsstats.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 <body> 
 <div id="afterlogin">
@@ -70,8 +71,13 @@ if(!isset($_SESSION['czyZalogowany']))
                     <h4 style="font-family: 'Orbitron'; margin:0;" class="accenttextcolor">System Overview</h4>
                     <small class="text-muted">Hello, <?php echo htmlspecialchars($_SESSION['login'] ?? 'User'); ?> -- session active</small>
                 </div>
+                <a id="btn-stop" onclick="toggleServer(false)" class="btn btn-outline-danger w-25">Turn Off</a>
+                <a id="btn-start" onclick="toggleServer(true)" class="btn btn-outline-success w-25" style="display: none;">Turn On</a>
+
                 <div class="user-info">
-                    <div class="fw-bold">Server - <n class="accenttextcolor">THE BEAST</n> <small class="text-success">● Online</small></div> 
+                    <div class="fw-bold">Server - <n class="accenttextcolor">THE BEAST</n> 
+                        <small id="server-status-text" class="text-success">● Online</small>
+                    </div>
                 </div>
             </header>
             <div class="row g-4 mb-4">
@@ -164,7 +170,7 @@ if(!isset($_SESSION['czyZalogowany']))
                 <h4 class="mb-0">TOTAL: <span id="cart-total-price" class="accenttextcolor">0.00$</span></h4>
                 <div>
                     <button class="btn btn-outline-secondary me-2" onclick="clearCart()">Clear Cart</button>
-                    <button class="btn btn-me px-4" onclick="checkout()">Checkout</button>
+                    <button class="btn btn-me px-4" onclick="checkout(); clearCart2()">Checkout</button>
                 </div>
             </div>
         </div>
