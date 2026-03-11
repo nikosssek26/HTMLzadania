@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORDLE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="wordle.js"></script>
+</head>
+<body onload="StartGame()">
+    <h1>WORDLE</h1>
+    <table id="thisTable">
+        <tr>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
+            <td></td>   
+        </tr>
+        <tr>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
+            <td></td>   
+        </tr>
+        <tr>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
+            <td></td>   
+        </tr>
+        <tr>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
+            <td></td>   
+        </tr>
+    </table>
+    <input oninput="SprawdzEnable()" placeholder="Wpisz słowo"
+    type="text" id="input" maxlength="5" style="color: white; background-color: rgba(0,0,0,0.3); border-radius: 6px;">
+    <button id="buttonsprawdz" style="color: white; background-color: rgba(0,0,0,0.3); border-radius: 6px;" 
+    onclick="Sprawdz()" disabled >Sprawdz</button>
+</body>
+    <script>
+        Tabela();
+    </script>
+</html>
