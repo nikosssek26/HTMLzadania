@@ -8,8 +8,9 @@
     <script src="wordle.js"></script>
 </head>
 <body onload="StartGame()">
-    <h1>WORDLE</h1>
-    <table id="thisTable">
+    <div id="game">
+        <h1>WORDLE</h1>
+        <table id="thisTable">
         <tr>
             <td></td>
             <td></td> 
@@ -45,11 +46,12 @@
             <td></td>
             <td></td>   
         </tr>
-    </table>
-    <input oninput="SprawdzEnable()" placeholder="Wpisz słowo"
-    type="text" id="input" maxlength="5" style="color: white; background-color: rgba(0,0,0,0.3); border-radius: 6px;">
-    <button id="buttonsprawdz" style="color: white; background-color: rgba(0,0,0,0.3); border-radius: 6px;" 
-    onclick="Sprawdz()" disabled >Sprawdz</button>
+        </table>
+        <input oninput="SprawdzEnable()" placeholder="Wpisz słowo"
+        type="text" id="input" maxlength="5" style="color: white; background-color: rgba(0,0,0,0.3); border-radius: 6px;">
+        <button id="buttonsprawdz" style="color: white; background-color: rgba(0,0,0,0.3); border-radius: 6px;" 
+        onclick="Sprawdz()" disabled >Sprawdz</button>
+    </div>
 </body>
     <script>
         Tabela();
