@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisielec</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game">
+        <h2 id="word"></h2>
+        
+        <form id="guess-form" onsubmit="return sprawdz(event);">
+            <input type="text" id="letter" maxlength="1" placeholder="Wpisz literę" required>
+            <button type="submit">Sprawdź</button>
+        </form>
+ 
+        <p id="message"></p>
+        <p>Błędy: <span id="bledy">0</span> / 9</p>
+        <p>Użyte litery: <span id="uzyte"></span></p>
+    </div>
+ 
+    <script>
+        const haslo = "KONSTANTYNOPOLITANCZYKOWIANECZKA".toUpperCase();
+        let ukryte = [];
+        let uzyte = [];
+        let bledy = 0;
+ 
+        for (let i = 0; i < haslo.length; i++) {
+            ukryte.push("_");
+        }
+ 
+        document.getElementById("word").innerText = ukryte.join(" ");
+ 
+        function sprawdz(event) {
+            event.preventDefault(); 
+ 
+            let input = document.getElementById('letter');
+            let litera = input.value.toUpperCase();
+            input.value = ""; 
+ 
+            if (uzyte.includes(litera)) return;
+            uzyte.push(litera);
+            document.getElementById("uzyte").innerText = uzyte.join(", ");
+ 
+            let trafiona = false;
+ 
+            for (let i = 0; i < haslo.length; i++) {
+                if (haslo[i] === litera) {
+                    ukryte[i] = litera;
+                    trafiona = true;
+                }
+            }
+ 
+            if (trafiona === false) {
+                bledy++;
+                document.getElementById("bledy").innerText = bledy;
+            }
+ 
+            document.getElementById("word").innerText = ukryte.join(" ");
+ 
+            if (!ukryte.includes("_")) {
+                document.getElementById("message").innerText = "Wygrana ! ";
+                input.disabled = true;
+            } else if (bledy >= 9) {
+                document.getElementById("message").innerText = "Przegrałeś! Hasło to: " + haslo;
+                input.disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>
