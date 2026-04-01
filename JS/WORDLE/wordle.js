@@ -35,6 +35,7 @@ function Sprawdz(){
             document.getElementById('cell'+nrWiersza+i).style.backgroundColor= 'yellow';
             break;
         }
+        
     }
 
     nrWiersza++;

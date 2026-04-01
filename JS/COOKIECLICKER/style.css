@@ -1,0 +1,27 @@
+body{
+    background-color: white;
+    align-items: center;
+    text-align: center;
+}
+img{
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+#ciastko {
+    transition: transform 0.1s;
+    cursor: pointer;
+    width: 200px;
+}
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+button {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+}
