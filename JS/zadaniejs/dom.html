@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<style>
+		.lewy{
+			float: left;
+			width: 30%;
+			height: 500px;
+		}
+		.prawy{
+			float: left;
+			width: 70%;
+			height: 500px;
+		}
+		.koniec{
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+    <div class="lewy">
+	zmien obrazek<br>
+	<button id="buttonphoto1" onclick="photo('1.png')">1.png</button>
+	<button id="buttonphoto2" onclick="photo('2.png')">2.png</button><br>
+	grubość ramki<br>
+	<input onchange="zmiengrubosc()" id="gruboscramki" type="number" value="0"> <br>
+	zamina koloru tła<br>
+	<button onclick="zmientlo('black')">czarny</button>
+	<button onclick="zmientlo('blue')">niebieski</button><br>
+	
+	zamina koloru tekstu<br>
+	<button onclick="zmienkolor('white')">biały</button>
+	<button onclick="zmienkolor('green')">zielony</button>	<br>
+	<input onchange="zmienpodreslenie()" type="checkbox" id="podkreslenie" >
+		tekst podkreślony<br>
+	czcionka:<br>
+	<input onclick="zmienczcionke1()" type="radio" name="czcionka" id="1" >Arial<br>
+	<input onclick="zmienczcionke2()" type="radio" name="czcionka" id="2" >Tahoma<br>
+	<input onclick="zmienczcionke3()" type="radio" name="czcionka" id="3" >Courier<br>
+	
+	
+	
+	</div>
+    <div class="prawy" id="prawy">
+	<img id="obr" src="1.png" alt="obrazek"><br>
+	<p>
+		Od wielu miesięcy strona palindromy.pl nie miała 
+		nowych materiałów z powodu choroby autora. 
+		Obecnie zaczynamy dodawać nowe materiały. 
+		Tym razem jest to tekst książki "Zagwiżdż i w gaz" 
+		wydanej w 2006. przez poznański Sorus. 
+		Roboczy tekst znaleziony w moim komputerze może 
+		się trochę różnić od ostatecznej wersji książki, 
+		ale posiadanie wersji cyfrowej może być atrakcją 
+		nawet dla tych, którzy książkę tę od dawna mają 
+		(Tadeusz Morawski).
+	</p>
+	</div>	
+    <div class="koniec">
+	stopka
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
