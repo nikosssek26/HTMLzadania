@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pizza</title>
+</head>
+<body>
+      <h3>Imię:</h3>
+            <input type="text" name="imie" id="imie" required>
+      <br>
+      <h3>Wybierz rodzaj pizzy:</h3>
+      <select name="pizza" id="pizza">
+            <option>Pizza Margherita </option>
+            <option>Pizza Pepperoni </option>
+            <option>Pizza BBQ Chicken </option>
+      </select>
+      <h3>Rozmiary pizzy:</h3>
+            <input type="radio" name="rozmiar" id="normalna" checked> Normalna<br>
+            <input type="radio" name="rozmiar" id="powiek"> Powiekszona<br> 
+            <input type="radio" name="rozmiar" id="duza"> Duża<br>
+      <br>
+      <h3>+2zl za dodatek:</h3>
+            <input type="checkbox" name="dodatki" id="rukola">rukola<br>
+            <input type="checkbox" name="dodatki" id="qqrydza">qqrydza<br>
+            <input type="checkbox" name="dodatki" id="chilli">papryczki chilli<br>
+      <br>
+      <h3>Numer Telefonu:</h3>
+            <input type="tel" name="numertelefonu" id="numertelefonu" required><br>
+      <br>
+            <button onclick="WyliczPizze()">Wylicz cene za pizze</button>
+
+</body>
+<script>
+      function WyliczPizze(){
+        var imie = document.getElementById("imie").value;
+        var nrtel = document.getElementById("numertelefonu");
+        var kasa = 0;
+
+        var rodzaj = document.getElementsByName("pizza")[0];
+        if(rodzaj.selectedIndex === 0)
+          kasa=33;    
+        else if(rodzaj.selectedIndex === 1)
+          kasa=45;
+        else if(rodzaj.selectedIndex === 2)
+          kasa=66;
+
+        var rozmiar = document.getElementsByName("rozmiar");
+        if(rozmiar[1].checked)
+          kasa += (kasa/100) * 33;
+        else if(rozmiar[2].checked)
+          kasa += (kasa/100) * 66;
+        else
+          kasa = kasa;
+        var rukola = document.getElementById("rukola"); 
+        var qqrydza = document.getElementById("qqrydza");
+        var chilli = document.getElementById("chilli");
+        if(rukola.checked)
+          kasa+=2;
+        if(qqrydza.checked)
+          kasa+=2;
+        if(chilli.checked)
+          kasa+=2; 
+
+        alert(rodzaj.value+" została jest zamowiona cena:"+kasa);
+        kasa=0;
+      }
+</script>
+</html>

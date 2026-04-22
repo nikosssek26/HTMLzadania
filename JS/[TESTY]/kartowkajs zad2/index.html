@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Zmiana tekstu</title>
+</head>
+<body>
+      <input type="radio" name="czcionka" id="czcionka1" onchange="zmienCzcionke()" checked> Arial<br>
+      <input type="radio" name="czcionka" id="czcionka2" onchange="zmienCzcionke()"> Gothic<br>
+      <br>
+      <input type="checkbox" name="podkreslenie" id="podkreslenie" onchange="Podkreslenie()" min="1">Podkreslenie <br>
+      <br>
+      Rozmiar czcionki<input type="number" name="rozmiarczcionka" id="rozmiarczcionka" oninput="ZmienRozmiarCzcionki()"><br>
+      <br>
+      <button onclick="Kolortla(1);">Niebieskie tlo</button><br>
+      <button onclick="Kolortla(2);">Zielone tlo</button><br>
+
+      <p id="tekst">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis venenatis convallis. Nam elementum non tellus sit amet gravida. Proin dictum pulvinar dolor ut tempor. Vivamus tincidunt molestie nisl, in finibus metus ultricies ac. Nunc sit amet dui dapibus, dictum arcu in, sollicitudin eros. Curabitur eleifend commodo mauris sed lacinia. Nullam auctor urna id purus efficitur pretium.
+            Nulla in pharetra diam. Donec gravida leo eu arcu vehicula sollicitudin. Suspendisse commodo gravida accumsan. Cras id molestie neque. Quisque rutrum dui et magna tempus, eu consequat diam consectetur. Suspendisse potenti. Sed cursus, diam et bibendum posuere, enim felis mollis ligula, ac sollicitudin purus enim rhoncus ipsum. Ut dignissim nisl ac fermentum aliquam. Pellentesque interdum id dui suscipit congue. Nullam quis nisl a enim egestas tempus. Donec eleifend lacinia elit in ullamcorper. Vivamus cursus suscipit lacus nec posuere. Nam euismod mauris et neque elementum tempus. Aliquam vitae mi eget lectus hendrerit mattis at ut nibh. Donec efficitur viverra commodo.
+      </p>
+</body>
+<script>
+      var tekst = document.getElementById("tekst");
+      function zmienCzcionke(){
+            var czcionka = document.getElementsByName("czcionka");
+            if(czcionka[0].checked){
+                  tekst.style.fontFamily = "Arial, Helvetica, sans-serif";
+            }
+            else if(czcionka[1].checked){
+                  tekst.style.fontFamily = "Georgia, 'Times New Roman', Times, serif";
+            }
+      }
+      function Podkreslenie(){
+            var temp = 0;
+            var podkreslenie = document.getElementById("podkreslenie");
+            if(podkreslenie.checked){
+                  tekst.style.textDecoration="underline";
+                  temp=1;
+            }
+            if(temp==1 && podkreslenie.checked==false){
+                  tekst.style.textDecoration="none";
+            }
+      }
+      function ZmienRozmiarCzcionki(){
+            var rozmiar = document.getElementById("rozmiarczcionka").value;
+            tekst.style.fontSize=rozmiar+"px";
+      }
+      function Kolortla(kolor){
+            if(kolor==1){
+                  document.body.style.backgroundColor="lightblue";
+            }
+            else if(kolor==2){
+                  document.body.style.backgroundColor="lightgreen";
+            }
+      }
+      
+
+
+
+</script>
+</html>
